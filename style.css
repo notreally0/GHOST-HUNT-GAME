@@ -1,0 +1,201 @@
+:root {
+    --bg: #06060a;
+    --panel: rgba(14, 16, 24, 0.85);
+    --border: rgba(0, 242, 254, 0.15);
+    --accent: #00ff66;
+    --pumpkin: #ff6600;
+    --danger: #ff0044;
+    --text: #cbd5e1;
+    --muted: #475569;
+    --font: 'Courier New', Courier, monospace;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,242,254,0.5) 0%, transparent 70%);
+    pointer-events: none;
+}
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+.brand {
+    font-width: bold;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+.accent {
+    color: var(--accent);
+}
+.stats {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.panel-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+#matrix {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+.cell {
+    background: rgba(255, 255, 25, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    text-align:center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease;
+    border-radius: 4px;
+}
+.cell.selectable {
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+}
+.cell.selectable:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 18px rgba(0, 255, 102, 0.6); 
+}
+.cell.active-row-col {
+    background:rgba(255, 102, 0, 0.08);
+    border-color: rgba(255, 102, 0, 0.3);
+}
+.cell.used {
+    opacity: 0.15;
+    cursor: not-allowed;
+    border-color: transparent;
+}
+.sequence-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+.sq-node {
+    border: 1px dashed var(--muted);
+    padding: 10px;
+    min-width: 45px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.sq-node.matched {
+    border-style: solid;
+    border-color: var(--pumpkin);
+    color: var(--pumpkin);
+    box-shadow: 0 0 12px rgba(255, 102, 0, 0.4);
+}
+.buffer-box {
+    display: flex;
+    gap: 8px;
+}
+.buf-node {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--muted);
+}
+.buf-node.filled {
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.2);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 6, 10, 0.93);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 6px;
+}
+.overlay.hidden {
+    display: none;
+}
+.overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.overlay.win h2 {
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent);
+}
+.overlay.lose h2 {
+    color: var(--pumpkin);
+    text-shadow: 0 0 20px var(--pumpkin);
+}
+.btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.btn:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+}

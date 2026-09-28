@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css"> 
+    <title>GHOST HUNT</title>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <div class="app-container">
+        <header>
+            <div class="brand"><span class="accent">CYBER</span> HACK<span style="color:#fff">GAME</span></div>
+            <div class="stats">
+                <div>TIME: <span id="timer" class="pumpkin">20.0s</span></div>
+                <div>SOULS HARVESTED: <span id="score" class="accent">0</span></div>
+            </div>
+        </header>
+
+        <div class="game-grid" style="position: relative;">
+            <div id="overlay" class="overlay hidden">
+                <h2 id="overlay-title">HAUNT EXECUTED</h2>
+                <p id="overlay-desc">Spook Sequence Extracted.</p>
+                <button class="btn" onclick="initGame()">NEXT HAUNT</button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header" style="display:flex; justify-content: space-between;">
+                    <div class="panel-title">GHOST MATRIX</div>
+                    <div class="panel-title"id="mode-indicator" style="color: #00ff66">SELECT ROW 1</div> 
+                </div>
+                <div id="matrix"></div>
+            </div>
+            <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div class="panel-title">HAUNT SEQUENCE</div>
+                    <div class="sequence-box" id="sequence"></div>
+
+                    <div class="panel-title">SOUL BUFFER SLOTS</div>
+                    <div class="buffer-box" id="buffer"></div>
+                </div>
+                <div>
+                    <button class="btn" style="width: 100%; border-color: #ff6600; color: #ff6600; " onclick="initGame()">RESTART SYSTEM
+                </div>
+            </div>
+        
+    </div>
+
+     <a href="guide.html" class="btn" style="text-decoration: none; display: inline-block; width: 100%; text-align: center;">SEE INSTRUCTIONS</a>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
